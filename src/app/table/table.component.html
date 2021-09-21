@@ -1,0 +1,25 @@
+<input class="form-control mt-4 mb-4" placeholder="Search Here ..................."   [(ngModel)]="filterData">
+<table class="table table-hover ">
+  <tr>
+    <td>Image</td>
+    <td class="col">Name</td>
+    <td class="col">Email</td>
+    <td class="col">Address</td>
+    <td class="col">Gender</td>
+    <td class="col">Update</td>
+    <td class="col">Delete</td>
+  </tr>
+  <tbody *ngFor="let item of itemarray|filter:filterData;let i=index" >
+    <!-- [attr.id]="item.id" -->
+    <tr class="mt-2">
+      <td><img [src]="item.image" style="width: 60px; height: 60px;"/></td>
+      <td>{{item.name}}</td>
+      <td>{{item.email}}</td>
+      <td>{{item.address}}</td>
+      <td>{{item.gender}}</td>
+      <td><button type="button" class="btn btn-info mx-3" (click)="updateRow(i)">Update</button></td>
+      <td><button type="button" id="remove" class="btn btn-danger mx-3" (click)="deleteRow(i)">Delete</button></td>
+    </tr>
+  </tbody>
+</table>
+<!-- {{childata|json}} -->

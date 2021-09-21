@@ -1,0 +1,37 @@
+<form [formGroup]="formValue" (ngSubmit)="onSubmit()">
+  <div class="form-floating mb-3">
+      <input type="text" formControlName="name"  class="form-control" id="name" placeholder="name@example.com">
+      <label for="floatingInput">Name</label>
+      <span class="text-danger" *ngIf="!formValue.controls.name?.valid && (formValue.controls.name?.dirty
+      ||formValue.controls.name?.touched)">
+                  Name is required
+      </span>
+      <!-- <div *ngIf="isSubmitted&&form.name.errors" class="text-danger">    
+        <p *ngIf="form.name.errors.required">Please enter name.</p>    
+      </div> -->
+  </div>
+  <div class="form-floating mb-3">
+      <input type="email" formControlName="email" class="form-control" id="email" placeholder="name@example.com">
+      <label for="floatingInput">Email address</label>
+      <span *ngIf="formValue.controls.email.errors " class="text-danger">    
+        <p *ngIf="formValue.controls.email.errors.required">Please enter email.</p>    
+        <p *ngIf="formValue.controls.email.errors.email">Please enter valid email.</p>    
+      </span> 
+  </div>
+  <div class="form-floating mb-3">
+      <textarea class="form-control" formControlName="address" placeholder="Enter your address here" id="floatingTextarea"></textarea>
+      <label for="floatingTextarea">Address</label>
+  </div>
+  <div class="form-floating mb-3">
+      <select class="form-select" id="floatingSelect" formControlName="gender" aria-label="Floating label select example">
+        <option selected>Select your gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+      <label for="floatingSelect">Gender</label>
+  </div>
+  <input type="file" *ngIf="!image" (change)="filechange($event)">
+  <img [src]="image" *ngIf="image" height="50px" width="50px">
+  <button type="submit" class="btn btn-info" [disabled]="formValue.invalid" value="submit">{{isUpdate?'Update':'Submit'}}</button>
+</form>
+
