@@ -1,4 +1,4 @@
-<form [formGroup]="formValue" (ngSubmit)="onSubmit()">
+<form [formGroup]="formValue" (ngSubmit)="onSubmit()" style="width: 50%; margin-left: 25%; background-color:rgb(235, 235, 235);">
   <div class="form-floating mb-3">
       <input type="text" formControlName="name"  class="form-control" id="name" placeholder="name@example.com">
       <label for="floatingInput">Name</label>
@@ -11,7 +11,8 @@
       </div> -->
   </div>
   <div class="form-floating mb-3">
-      <input type="email" formControlName="email" class="form-control" id="email" placeholder="name@example.com">
+      <input type="email" formControlName="email" class="form-control" id="email" placeholder="name@example.com" style="width: 80%  ;
+      ">
       <label for="floatingInput">Email address</label>
       <span *ngIf="formValue.controls.email.errors " class="text-danger">    
         <p *ngIf="formValue.controls.email.errors.required">Please enter email.</p>    
